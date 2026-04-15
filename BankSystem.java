@@ -1,15 +1,22 @@
 import java.util.concurrent.Executors;
 import java.util.List;
-import java.time.LocalDateTime;
 
+/**
+ * MULTITHREADING: Processamento paralelo.
+ * Tecnologia: VIRTUAL THREADS (Java 21) - Threads leves para alta escala.
+ */
 public class BankSystem {
     
     public void processarLoteAssincrono(Card card, List<Double> valores) {
         System.out.println("\n--- INICIANDO PROCESSAMENTO EM MASSA (VIRTUAL THREADS) ---");
         
-        // Criando um executor que abre uma Virtual Thread por tarefa
+        /**
+         * TRY-WITH-RESOURCES: Fecha o executor automaticamente no final.
+         * NewVirtualThreadPerTask: Cria uma thread virtual para cada transação.
+         */
         try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
             for (Double valor : valores) {
+                // Submit envia a tarefa (Lambda) para execução em paralelo
                 executor.submit(() -> {
                     try {
                         card.processPayment(valor);
@@ -22,7 +29,7 @@ public class BankSystem {
                     return null;
                 });
             }
-        } // O try-with-resources garante que o programa espere todas as threads acabarem
+        } 
         
         System.out.println("--- LOTE FINALIZADO ---");
     }

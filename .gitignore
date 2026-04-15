@@ -1,0 +1,8 @@
+*.class
+*.jar
+*.war
+# Pastas de IDEs
+.classpath
+.project
+.settings/
+bin/
