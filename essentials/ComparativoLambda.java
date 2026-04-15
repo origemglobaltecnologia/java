@@ -1,6 +1,11 @@
+/**
+ * CONCEITO: Classes Anônimas vs Expressões Lambda.
+ * Interface Funcional: Aquela que possui exatamente um método abstrato.
+ * Lambda (Java 8+): Sintaxe simplificada para implementar interfaces funcionais.
+ */
 public class ComparativoLambda {
 
-    // 1. Definimos uma Interface Funcional (obrigatória para Lambdas)
+    @FunctionalInterface // Garante que a interface só tenha um método (ideal para Lambda)
     interface Operacao {
         int calcular(int x, int y);
     }
@@ -9,9 +14,7 @@ public class ComparativoLambda {
         
         System.out.println("=== Comparativo: Java 7 (Sem Lambda) vs Java 21 (Com Lambda) ===\n");
 
-        // --- ABORDAGEM 1: SEM LAMBDA (Java 7 e anteriores) ---
-        // Usamos uma Classe Anônima. É preciso criar o objeto, 
-        // abrir chaves, repetir o nome do método e dar o return.
+        // ABORDAGEM JAVA 7: Classe Anônima. Muita verbosidade (Boilerplate).
         Operacao semLambda = new Operacao() {
             @Override
             public int calcular(int x, int y) {
@@ -19,18 +22,13 @@ public class ComparativoLambda {
             }
         };
 
-        // --- ABORDAGEM 2: COM LAMBDA (Java 8 até o 21) ---
-        // O Java entende que "calcular" é o único método da interface.
-        // Ele infere os tipos e o return automaticamente.
+        // ABORDAGEM JAVA 8+: Lambda. Tipo dos parâmetros e return são inferidos.
         Operacao comLambda = (x, y) -> x * y;
 
-        // Executando ambas
         int res1 = semLambda.calcular(10, 5);
         int res2 = comLambda.calcular(10, 5);
 
         System.out.println("Resultado Sem Lambda (Classe Anônima): " + res1);
         System.out.println("Resultado Com Lambda (Sintaxe Curta):   " + res2);
-        
-        System.out.println("\nNota: O resultado é o mesmo, mas a Lambda economizou 5 linhas de código.");
     }
 }

@@ -1,20 +1,25 @@
+/**
+ * CONCEITO: Tipos Primitivos de Dados.
+ * O Java possui 8 primitivos que não são objetos e ficam na memória Stack.
+ * Tamanhos: byte(8), short(16), int(32), long(64), float(32), double(64), char(16), boolean(1).
+ */
 public class VariaveisJava7 {
     public static void main(String[] args) {
-        // --- 1. OS 4 INTEIROS (Diferem pelo tamanho em memória) ---
-        byte minúsculo = 127;                // 8-bit (-128 a 127)
-        short pequeno = 32767;               // 16-bit
-        int comum = 2147483647;              // 32-bit (O padrão)
-        long gigante = 7000000000L;          // 64-bit (Precisa do L!)
+        // INTEIROS
+        byte minúsculo = 127; 
+        short pequeno = 32767;
+        int comum = 2147483647;
+        long gigante = 7000000000L; // Sufixo L obrigatório para literais long
 
-        // --- 2. OS 2 DECIMAIS (Ponto Flutuante) ---
-        float preciso = 1.75f;               // 32-bit (Precisa do f!)
-        double muitoPreciso = 19.90;         // 64-bit (O padrão)
+        // DECIMAIS
+        float preciso = 1.75f;      // Sufixo f obrigatório para literais float
+        double muitoPreciso = 19.90;
 
-        // --- 3. OS 2 "OUTROS" ---
-        char letra = 'A';                    // 16-bit (Guarda UM caractere)
-        boolean ativo = true;                // 1-bit nominal (true/false)
+        // OUTROS
+        char letra = 'A';           // Aspas simples para char
+        boolean ativo = true;
 
-        // --- BÔNUS: O OBJETO (Não é primitivo!) ---
+        // String: Objeto especial (Imutável)
         String texto = "Oracle Certified";
 
         System.out.println("--- TODOS OS 8 PRIMITIVOS DO JAVA 7 ---");
@@ -26,7 +31,5 @@ public class VariaveisJava7 {
         System.out.println("06. Double:  " + muitoPreciso);
         System.out.println("07. Char:    " + letra);
         System.out.println("08. Boolean: " + ativo);
-        System.out.println("---------------------------------------");
-        System.out.println("Bônus (String): " + texto);
     }
 }

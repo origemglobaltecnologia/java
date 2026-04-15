@@ -1,13 +1,19 @@
+/**
+ * CONCEITO: Precedência de Operadores Unários.
+ * a++ (Pós): Usa o valor e depois incrementa.
+ * --b (Pré): Decrementa e depois usa o valor.
+ * Pegadinha clássica de prova OCP.
+ */
 public class DesafioOperadores {
     public static void main(String[] args) {
-        int a = 2;
-        int b = 3;
+        int a = 2; // Variável inicial
+        int b = 3; // Variável inicial
         
-        // Vamos decompor a linha: int c = a++ * --b;
-        int valorUsadoEmA = a++; // Aqui ele pega 2
-        int valorUsadoEmB = --b; // Aqui ele transforma 3 em 2
+        // DECOMPOSIÇÃO: c = 2 (a) * 2 (b pré-decrementado)
+        int valorUsadoEmA = a++; // Salva 2, incrementa A para 3
+        int valorUsadoEmB = --b; // Decrementa B para 2, salva 2
         
-        int c = valorUsadoEmA * valorUsadoEmB;
+        int c = valorUsadoEmA * valorUsadoEmB; // 2 * 2 = 4
 
         System.out.println("--- RESULTADO DO SEU DESAFIO ---");
         System.out.println("Valor de A usado na conta: " + valorUsadoEmA);

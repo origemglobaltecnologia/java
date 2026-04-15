@@ -1,22 +1,25 @@
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 
+/**
+ * CONCEITO: Interfaces Funcionais do pacote java.util.function.
+ * BinaryOperator<T>: Recebe dois T e retorna um T.
+ * Consumer<T>: Recebe um T e não retorna nada (void).
+ * Runnable: Não recebe nada e não retorna nada.
+ */
 public class LambdaPura {
     public static void main(String[] args) {
         
-        // 1. Lambda que recebe dois números e retorna a soma
-        // Usa a interface funcional nativa BinaryOperator<T>
+        // Lambda que implementa a lógica de soma
         BinaryOperator<Integer> somar = (a, b) -> a + b;
 
-        // 2. Lambda que recebe um texto e imprime (sem retorno)
-        // Usa a interface funcional nativa Consumer<T>
+        // Lambda que implementa a lógica de saída de dados
         Consumer<String> imprimir = mensagem -> System.out.println(">>> " + mensagem);
 
-        // Execução
         int resultado = somar.apply(10, 5);
         imprimir.accept("Resultado da Lambda: " + resultado);
 
-        // 3. Exemplo de Lambda inline (passada como argumento)
+        // Lambda inline para a interface funcional Runnable
         executarTarefa(() -> System.out.println(">>> Tarefa executada via Lambda!"));
     }
 

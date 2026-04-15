@@ -1,25 +1,28 @@
 import java.util.*;
 
+/**
+ * CONCEITO: Framework de Coleções do Java.
+ * List: Ordenada, aceita duplicatas.
+ * Set: Não ordenada (geralmente), não aceita duplicatas.
+ * Map: Par Chave-Valor.
+ */
 public class EstruturaDados {
     public static void main(String[] args) {
-        // --- ARRAYLIST: Foco em Acesso Rápido ---
-        // Bom para: Ler dados pelo índice. Ruim para: Inserir no meio da lista.
+        // ARRAYLIST: Implementação de List baseada em arrays redimensionáveis.
         List<String> lista = new ArrayList<>();
         lista.add("Java");
         lista.add("Python");
-        lista.add("Java"); // Aceita duplicado
+        lista.add("Java"); // Permitido
         System.out.println("ArrayList (Ordenada): " + lista);
 
-        // --- HASHSET: Foco em Unicidade ---
-        // Bom para: Garantir que não existam repetidos. Não garante ordem.
+        // HASHSET: Implementação de Set baseada em Tabela Hash. Unicidade garantida.
         Set<String> conjunto = new HashSet<>();
         conjunto.add("Java");
         conjunto.add("Python");
-        conjunto.add("Java"); // Será ignorado
+        conjunto.add("Java"); // Ignorado silenciosamente
         System.out.println("HashSet (Sem repetidos): " + conjunto);
 
-        // --- HASHMAP: Foco em Busca por Chave ---
-        // Guarda um par (Chave -> Valor). Busca quase instantânea.
+        // HASHMAP: Mapeamento de chaves únicas para valores.
         Map<String, String> dicionario = new HashMap<>();
         dicionario.put("OCP", "Oracle Certified Professional");
         dicionario.put("IDE", "Integrated Development Environment");

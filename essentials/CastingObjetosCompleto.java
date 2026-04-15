@@ -1,17 +1,22 @@
+/**
+ * CONCEITO: Polimorfismo e Referência de Objetos.
+ * Upcasting: Tratar um filho como pai (automático).
+ * Downcasting: Tratar um pai como filho (precisa de casting explícito e risco de ClassCastException).
+ */
 class Veiculo { void mover() { System.out.println("Veiculo movendo"); } }
 class Carro extends Veiculo { void ligarAr() { System.out.println("Ar condicionado ligado"); } }
 
 public class CastingObjetosCompleto {
     public static void main(String[] args) {
-        // UPCASTING (Sempre seguro)
+        // UPCASTING: Carro é um Veiculo. Referência 'v' tipo Veiculo aponta para objeto Carro.
         Veiculo v = new Carro(); 
         v.mover(); 
-        // v.ligarAr(); // ERRO: Veiculo não conhece o método ligarAr
+        // v.ligarAr(); // ERRO DE COMPILAÇÃO: O compilador olha para o tipo da referência (Veiculo).
 
-        // DOWNCASTING (Requer autorização)
-        if (v instanceof Carro) { // Verificação de segurança
-            Carro c = (Carro) v; 
-            c.ligarAr(); // Agora o Java "deixa" usar
+        // DOWNCASTING: 'v' volta a ser tratado como Carro.
+        if (v instanceof Carro) { // Verificação de segurança (boa prática OCP)
+            Carro c = (Carro) v; // Casting explícito
+            c.ligarAr(); // Agora o compilador acessa os métodos específicos de Carro
         }
     }
 }

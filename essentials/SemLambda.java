@@ -1,11 +1,14 @@
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 
+/**
+ * CONCEITO: Implementação manual de Interfaces Funcionais.
+ * Mostra como o Java trabalhava antes das Lambdas (Java 8).
+ */
 public class SemLambda {
     public static void main(String[] args) {
         
-        // 1. O equivalente à (a, b) -> a + b
-        // No Java 7, precisamos instanciar a interface e abrir um bloco de código
+        // Instanciação de Interface Funcional via Classe Anônima
         BinaryOperator<Integer> somar = new BinaryOperator<Integer>() {
             @Override
             public Integer apply(Integer a, Integer b) {
@@ -13,7 +16,6 @@ public class SemLambda {
             }
         };
 
-        // 2. O equivalente à mensagem -> System.out.println(...)
         Consumer<String> imprimir = new Consumer<String>() {
             @Override
             public void accept(String mensagem) {
@@ -21,11 +23,9 @@ public class SemLambda {
             }
         };
 
-        // Execução (Idêntica ao exemplo anterior)
         int resultado = somar.apply(10, 5);
         imprimir.accept("Resultado sem Lambda: " + resultado);
 
-        // 3. Exemplo de Classe Anônima passada como argumento (antigo Runnable)
         executarTarefa(new Runnable() {
             @Override
             public void run() {
